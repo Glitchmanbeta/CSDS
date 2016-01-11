@@ -7,7 +7,7 @@ boolean rectOver = false;
 
 void setup(){
   fullScreen();
-  f = createFont("Papyrus", 68, true);
+  f = createFont("Terminal", 68, true);
   rectColor = color(128);
   rectHighlight = color(102);
   rectX = width/2 - rectSize - 10;
@@ -18,9 +18,10 @@ void draw(){
   background(0);
   textFont(f);
   fill(255);
-  text("The Computer Science Dating Simulator", 0, 100);
+  textAlign(CENTER, CENTER);
+  text("The Computer Science Dating Simulator", width/2 , 50);
   textFont(f, 34);
-  text("(This screen is a placeholder! More will come in the future)", 200, 200); 
+  text("(This screen is a placeholder! More will come in the future)", width/2, 150); 
   update(mouseX, mouseY);
   if(rectOver){
     fill(rectHighlight);
