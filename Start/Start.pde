@@ -3,7 +3,6 @@ int rectX, rectY;
 int rectSize = 90;
 color rectColor, rectHighlight;
 color currentColor;
-boolean rectOver = false;
 
 void setup(){
   fullScreen();
@@ -22,32 +21,10 @@ void draw(){
   text("The Computer Science Dating Simulator", width/2 , 50);
   textFont(f, 34);
   text("(This screen is a placeholder! More will come in the future)", width/2, 150); 
-  update(mouseX, mouseY);
-  if(rectOver){
-    fill(rectHighlight);
-  }else{
-    fill(rectColor);
-  }
   rect(rectX, rectY, rectSize, rectSize);
 }
 
-void update(int x, int y) {
-    if( overRect(rectX, rectY, rectSize, rectSize) ) {
-        rectOver = true;
-  }
-}
-
 void mousePressed() {
-  if(rectOver){
-    currentColor = rectColor;
-  }
-}
-
-boolean overRect(int x, int y, int width, int height)  {
-  if (mouseX >= x && mouseX <= x+width && 
-      mouseY >= y && mouseY <= y+height) {
-    return true;
-  } else {
-    return false;
-  }
+  textFont(f, 24);
+  text("Something changed!", width/2, 300);
 }
