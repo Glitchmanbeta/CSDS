@@ -6,10 +6,10 @@ color currentColor;
 
 void setup(){
   fullScreen();
-  f = createFont("Terminal", 68, true);
+  f = createFont("Comic Sans MS", 68, true);
   rectColor = color(128);
   rectHighlight = color(102);
-  rectX = width/2 - rectSize - 10;
+  rectX = width/2 - rectSize/2;
   rectY = height/2 - rectSize/2;
 }
 
@@ -25,6 +25,11 @@ void draw(){
 }
 
 void mousePressed() {
-  textFont(f, 24);
-  text("Something changed!", width/2, 300);
+   if(mouseX > rectX && mouseX < rectX + rectSize && mouseY > rectY && mouseY < rectY + rectSize){
+    textFont(f, 24);
+    text("Something changed!", width/2, 300);
+   }else{
+     textFont(f, 24);
+     text("Something else changed!", width/2, 300);
+   }
 }
