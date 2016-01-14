@@ -1,6 +1,7 @@
 import controlP5.*;
 import java.util.*;
 
+String mode;
 PFont f;
 int rectX, rectY;
 int rectSize = 50;
@@ -12,6 +13,7 @@ List orientation;
 
 void setup(){
   fullScreen();
+  mode = "Title";
   f = createFont("Comic Sans MS", 68, true);
   rectColor = color(128);
   rectHighlight = color(102);
@@ -25,28 +27,15 @@ void setup(){
 void draw(){
   background(0);
   textFont(f);
-  title();
+  if(mode.equals("Title")){
+     title();
+  }
+  if(mode.equals("Menus");
 }
 
 void mousePressed() {
    if(mouseX > rectX && mouseX < rectX + rectSize + 50 && mouseY > rectY && mouseY < rectY + rectSize){
-   background(0);
    menus();
+   mode = "Menus";
    }
-}
-
-void menus(){
-  menus.addScrollableList("Gender?")
-    .setPosition(600, 600)
-    .setSize(200, 100)
-    .setBarHeight(20)
-    .setItemHeight(20)
-    .addItems(gender);
-    
-  menus.addScrollableList("Orientation?")
-    .setPosition(800, 600)
-    .setSize(200, 100)
-    .setBarHeight(20)
-    .setItemHeight(20)
-    .addItems(orientation);
 }
