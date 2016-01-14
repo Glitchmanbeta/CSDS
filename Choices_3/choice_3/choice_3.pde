@@ -1,17 +1,29 @@
 int rectX, rectY;
-int B1, B2, B3;
-int rectSize = 50;
+int firstChoice, secondChoice, thirdChoice;
+int leftBound, rightBound, rectWidth, rectHeight;
 
-void setup(){
+
+void setup() {
   fullScreen();
   rect(height / 20, height / 20, width - height / 10, 9 * height / 10);
+  
+  leftBound = height / 20;
+  rightBound = width - height / 10;
+  
+  rectWidth = width - height / 10;
+  rectHeight = 7 * height / 100;
+  
+  firstChoice = 18 * height / 25;
+  secondChoice = 4 * height / 5;
+  thirdChoice = 22 * height / 25;
 }
+
 
 void buttons() {
   fill(120);
-  rect(height / 20, 72 * height / 100, width - height / 10, 7 * height / 100);
-  rect(height / 20, 80 * height / 100, width - height / 10, 7 * height / 100);
-  rect(height / 20, 88 * height / 100, width - height / 10, 7 * height / 100);
+  rect(leftBound, firstChoice, rightBound, rectHeight);
+  rect(leftBound, secondChoice, rightBound, rectHeight);
+  rect(leftBound, thirdChoice, rightBound, rectHeight);
 }
 
 void draw() {
@@ -19,9 +31,17 @@ void draw() {
 }
 
 void mousePressed() {
-   if(mouseX > rectX && mouseX < rectX + rectSize && mouseY > rectY && mouseY < rectY + rectSize){
-    text("Something changed!", width/2, 300);
-   } else{
-     text("Something else changed!", width/2, 300);
+   if(mouseX > rectX && mouseX < rectX + rectWidth) {
+     if(mouseY > firstChoice && mouseY < firstChoice + rectHeight) {
+       text("Something changed!", width / 2, 300);
+     }
+     
+     else if(mouseY > secondChoice && mouseY < secondChoice + rectHeight) {
+       text("You're a wizard, Harry", width / 2, 300);
+     }
+     
+     else if (mouseY > thirdChoice && mouseY < thirdChoice + rectHeight) {
+       text("U wot m8", width / 2, 300);
+     }
    }
 }
