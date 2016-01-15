@@ -23,3 +23,7 @@ void menuText(){
   text("What is your gender?", width/4, height/4);
   text("What is your sexual orientation?", width * (3.0/4.0), height/4);
 }
+
+void dropdown(int n){
+  println(
+}
