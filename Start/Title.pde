@@ -10,3 +10,10 @@ void title(){
   fill(0);
   text("Start!", rectX, rectY + 50);
 }
+
+void mousePressed() {
+   if(mouseX > rectX && mouseX < rectX + rectSize + 50 && mouseY > rectY && mouseY < rectY + rectSize){
+   menus();
+   mode = "Menus";
+   }
+}

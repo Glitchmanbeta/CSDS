@@ -14,7 +14,7 @@ List orientation;
 void setup(){
   fullScreen();
   mode = "Title";
-  f = createFont("Comic Sans MS", 68, true);
+  f = createFont("Papyrus", 68, true);
   rectColor = color(128);
   rectHighlight = color(102);
   rectX = width/2 - (rectSize + 50)/2;
@@ -30,12 +30,7 @@ void draw(){
   if(mode.equals("Title")){
      title();
   }
-  if(mode.equals("Menus");
-}
-
-void mousePressed() {
-   if(mouseX > rectX && mouseX < rectX + rectSize + 50 && mouseY > rectY && mouseY < rectY + rectSize){
-   menus();
-   mode = "Menus";
-   }
+  if(mode.equals("Menus")){
+    menuText();
+  }
 }
