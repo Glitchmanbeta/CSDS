@@ -24,6 +24,21 @@ void menuText(){
   text("What is your sexual orientation?", width * (3.0/4.0), height/4);
 }
 
-void dropdown(int n){
-  println(
+void controlEvent(ControlEvent theEvent){
+   if (theEvent.isGroup()) {
+    // check if the Event was triggered from a ControlGroup
+    println("event from group : "+theEvent.getGroup().getValue()+" from "+theEvent.getGroup());
+  } 
+  else if (theEvent.isController()) {
+    /*String debug = theEvent.getController().toString();
+    println(debug);*/
+    println("event from controller : "+theEvent.getController().getValue()+" from "+ theEvent.getController());
+    if(theEvent.getController().toString().equals("Gender? [ScrollableList]")){
+      sex = theEvent.getController().getValue();
+      }
+    }
+    else if(theEvent.getController().toString().equals("Orientation? [ScrollableList]")){
+      lovers = theEvent.getController().getValue();
+    }
+  }
 }

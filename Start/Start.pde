@@ -1,15 +1,17 @@
 import controlP5.*;
 import java.util.*;
 
-String mode;
-PFont f;
-int rectX, rectY;
-int rectSize = 50;
-color rectColor, rectHighlight;
-color currentColor;
-ControlP5 menus;
+String mode; //Tells the game what it should display in draw()
+PFont f; //Standarizes font
+int rectX, rectY; //For the start button
+int rectSize = 50; //Same as above
+color rectColor, rectHighlight;//Same as above
+color currentColor;//Same as above
+ControlP5 menus; // Next three are the menus
 List gender;
 List orientation;
+float sex; //Keeps track of the gender selected
+float lovers; //Keeps track of the orientation selected
 
 void setup(){
   fullScreen();
