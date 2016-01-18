@@ -1,4 +1,4 @@
-void menus(){
+void menu(){
   menus.addScrollableList("Gender?")
     .setPosition(width/6 + 10, height/3)
     .setSize(200, 100)
@@ -38,9 +38,10 @@ void controlEvent(ControlEvent theEvent){
     println("event from controller : "+theEvent.getController().getValue()+" from "+ theEvent.getController());
     if(theEvent.getController().toString().equals("Gender? [ScrollableList]")){
       sex = theEvent.getController().getValue();
+      //theEvent.getController().close(); THIS THING SHOULD REALLY CHECK ITS OWN DOCUMENTATION YOU STUPID POS CLOSE() DOES INDEED EXIST THIS THING IS JUST BEING STUPID
       }
     }
-    else if(theEvent.getController().toString().equals("Orientation? [ScrollableList]")){
+    if(theEvent.getController().toString().equals("Orientation? [ScrollableList]")){
       lovers = theEvent.getController().getValue();
     }
 }

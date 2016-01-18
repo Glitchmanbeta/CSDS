@@ -35,16 +35,20 @@ void draw(){
   if(mode.equals("Menus")){
     menuText();
   }
+  if(mode.equals("Confirm")){
+    confirm();
+  }
 }
 
 void mousePressed() {
    if(mouseX > rectX && mouseX < rectX + rectSize + 50 && mouseY > rectY && mouseY < rectY + rectSize && mode.equals("Title")){
-   menus();
+   menu();
    mode = "Menus";
    }
-   if(mouseX < width && mouseY < height && mode.equals("Menus")){
-   //if(mouseX > (width - (2 * rectSize)) && mouseX < (width - rectSize) && mouseY > (height - (2 * rectSize) + 50) && mouseY < (height - rectSize)){
-     fill(255);
-     text("Pontypines", 800, 600);
+   //if(mouseX < width && mouseY < height && mode.equals("Menus")){
+   if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Menus")){
+     //menus.close();
+     confirm();
+     mode = "Confirm";
    }
 }
