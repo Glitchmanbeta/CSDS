@@ -22,6 +22,9 @@ void menuText(){
   textFont(f, 30);
   text("What is your gender?", width/4, height/4);
   text("What is your sexual orientation?", width * (3.0/4.0), height/4);
+  rect(width - (2* rectSize), height - (2 * rectSize) + 50, rectSize + 50, rectSize);
+  fill(0);
+  text("Next", width - (2 * rectSize) + 50, height - (2 * rectSize) + 75);
 }
 
 void controlEvent(ControlEvent theEvent){
@@ -40,5 +43,4 @@ void controlEvent(ControlEvent theEvent){
     else if(theEvent.getController().toString().equals("Orientation? [ScrollableList]")){
       lovers = theEvent.getController().getValue();
     }
-  }
 }
