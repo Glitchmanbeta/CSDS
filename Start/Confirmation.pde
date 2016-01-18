@@ -30,9 +30,14 @@ String love(float lovers){
   }
 }
 void confirm(){
+  menus.get(ScrollableList.class, "Gender?").setBarVisible(false);
+  menus.get(ScrollableList.class, "Orientation?").setBarVisible(false);
   fill(255);
   textAlign(CENTER, CENTER);
   textFont(f, 20);
   text("So, you are a(n) " + love(lovers) + " " + organ(sex), width /2, height / 2);
   text("Great! Shall we begin?", width / 2, height / 2 + 100);
+  rect(width - (2* rectSize), height - (2 * rectSize) + 50, rectSize + 50, rectSize);
+  fill(0);
+  text("Begin", width - (2 * rectSize) + 50, height - (2 * rectSize) + 75);
 }

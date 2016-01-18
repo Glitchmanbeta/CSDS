@@ -38,7 +38,6 @@ void controlEvent(ControlEvent theEvent){
     println("event from controller : "+theEvent.getController().getValue()+" from "+ theEvent.getController());
     if(theEvent.getController().toString().equals("Gender? [ScrollableList]")){
       sex = theEvent.getController().getValue();
-      //theEvent.getController().close(); THIS THING SHOULD REALLY CHECK ITS OWN DOCUMENTATION YOU STUPID POS CLOSE() DOES INDEED EXIST THIS THING IS JUST BEING STUPID
       }
     }
     if(theEvent.getController().toString().equals("Orientation? [ScrollableList]")){

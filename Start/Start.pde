@@ -47,8 +47,10 @@ void mousePressed() {
    }
    //if(mouseX < width && mouseY < height && mode.equals("Menus")){
    if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Menus")){
-     //menus.close();
      confirm();
      mode = "Confirm";
+   }
+   if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Confirm")){
+     //Start here Kai!
    }
 }
