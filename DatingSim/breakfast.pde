@@ -1,5 +1,4 @@
 void breakfast() {
-    System.out.println("Yo");
     background(255);
 
     fill(255);    
@@ -23,20 +22,5 @@ void breakfast() {
     text("• Starve. Why waste food on someone like yourself?", width / 2, choice2 + choiceHeight / 2);
     
     textAlign(CENTER, CENTER);
-    text("• Throw the food at your parents and scream 'THE BACON'S RAAAAAW!'.", width / 2, choice3 + choiceHeight / 2);
-
-  
-    if(mouseX > leftBound && mouseX < rightBound && mode.equals("Breakfast")) {
-      if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
-        exit();
-      }
-       
-      else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
-        // breakfast();
-      }
-       
-      else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
-        // breakfast();
-      }
-    }
+    text("• Throw the food at your parents and scream 'THE BACON IS FORKING RAAAAAW!'.", width / 2, choice3 + choiceHeight / 2);
 }

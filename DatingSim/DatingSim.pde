@@ -18,7 +18,7 @@ int choice1, choice2, choice3, choiceHeight;
 int leftBound, rightBound, rectWidth, rectHeight;
 
 PFont description, choice_font;
-PImage bed, food;
+PImage bed, food, bum, park;
 
 
 void setup(){
@@ -48,7 +48,8 @@ void setup(){
   
   bed = loadImage("bed.jpg");
   food = loadImage("food.jpg");
-  
+  bum = loadImage("panhandler.jpg");
+  park = loadImage("park.jpg");
 }
 
 void draw(){
@@ -74,7 +75,14 @@ void draw(){
   if(mode.equals("Breakfast")){
     breakfast();
   }
-
+  
+  if(mode.equals("Train")) {
+    train();
+  }
+  
+  if(mode.equals("C$")) {
+    comp();
+  }
 }
 
 void mousePressed() {
@@ -93,17 +101,63 @@ void mousePressed() {
      morning();
    }
    
+   else if(mouseX > leftBound && mouseX < rightBound && mode.equals("C$")) {
+      if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
+        mode = "C";
+      }
+       
+      else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
+        mode = "C";
+      }
+       
+      else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
+        mode = "C";
+      }
+    }
+   
+   else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Train")) {
+      if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
+        mode = "C$";
+        comp();
+      }
+       
+      else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
+        mode = "C$";
+        comp();
+      }
+       
+      else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
+        mode = "C$";
+        comp();
+      }
+    }
+   
+   else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Breakfast")) {
+      if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
+        mode = "Train";
+        train();
+      }
+       
+      else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
+        mode = "Train";
+        train();
+      }
+       
+      else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
+        mode = "Train";
+        train();
+      }
+    }
+   
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Morning")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
         mode = "Breakfast";
         breakfast();
       }
        
-      else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
+      if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
         mode = "Breakfast";
-       // exit();
         breakfast();
-
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
