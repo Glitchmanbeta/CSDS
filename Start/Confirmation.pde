@@ -1,30 +1,38 @@
 String organ(float sex){
-  if(sex == 0.0){
+  if(sex == 0.0) {
     return "Male";
   }
-  if(sex == 1.0){
+
+  else if(sex == 1.0) {
     return "Female";
   }
-  if(sex == 2.0){
+
+  else if(sex == 2.0) {
     return "Trans";
   }
+
   else{
     return "Apache Attack Helicopter";
   }
 }
-String love(float lovers){
-  if(lovers == 0.0){
+
+String love(float lovers) {
+  if(lovers == 0.0) {
     return "Heterosexual";
   }
+
   if(lovers == 1.0){
     return "Homosexual";
   }
-  if(lovers == 2.0){
+
+  if(lovers == 2.0) {
     return "Bisexual";
   }
+
   if(lovers == 3.0){
     return "Asexual";
   }
+
   else{
     return "Unknown";
   }

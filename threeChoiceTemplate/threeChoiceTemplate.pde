@@ -32,7 +32,7 @@ void text_choices() {
 
   textAlign(CENTER, CENTER);
   text("You wake up from the all-nighter you pulled yesterday. Your eyes are burning, but the pain feels so good. The crack of dawn shows itself from the tiny window across your room.", width / 2, 67.5 * height / 100);
-  text("At times like this, you question your choice to go to Stuyvesant High School. But being Mr. K's disciple in his APCS class is worth it.", width / 2, 71.5 * height / 100);
+  text("At times like this, you question your decision to go to Stuyvesant High School. But being Mr. K's disciple in his APCS class makes it seem all worth it.", width / 2, 71.5 * height / 100);
 
   
   fill(100);
