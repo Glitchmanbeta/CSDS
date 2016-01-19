@@ -2,19 +2,18 @@ int rectX, rectY;
 int choice1, choice2, choice3, choiceHeight;
 int leftBound, rightBound, rectWidth, rectHeight;
 
-PFont g;
-
+PFont description, choice_font;
+PImage bed;
 
 void setup(){
   fullScreen();
-  
-  g = createFont("Comic Sans", 36, true);
   
   leftBound = height / 20;
   rightBound = 19 * height / 20;
   rectWidth = width - height / 10;
   rectHeight = 9 * height / 10;
 
+  // 1814 x 650
   
   choice1 = 76 * height / 100;
   choice2 = 82 * height / 100;
@@ -24,23 +23,39 @@ void setup(){
   rect(leftBound, leftBound, rectWidth, rectHeight);
 }
 
-void buttons() {
+void text_choices() {
+  description = createFont("papyrus.ttf", 24);
+  choice_font = createFont("papyrus.ttf", 24);
 
+  fill(0);
+  textFont(description);
+
+  textAlign(CENTER, CENTER);
+  text("You wake up from the all-nighter you pulled yesterday. Your eyes are burning, but the pain feels so good. The crack of dawn shows itself from the tiny window across your room.", width / 2, 67.5 * height / 100);
+  text("At times like this, you question your choice to go to Stuyvesant High School. But being Mr. K's disciple in his APCS class is worth it.", width / 2, 71.5 * height / 100);
+
+  
   fill(100);
-  textSize(36);
+  textFont(choice_font);
 
   textAlign(CENTER, CENTER);
-  text("• ABCD", width / 2, choice1 + choiceHeight / 2);
+  text("• Wake up, as you must see K-Senpai.", width / 2, choice1 + choiceHeight / 2);
   
   textAlign(CENTER, CENTER);
-  text("• EFGH", width / 2, choice2 + choiceHeight / 2);
+  text("• Go back to sleep. Sweet, sweet sleep. Mmmm...", width / 2, choice2 + choiceHeight / 2);
   
   textAlign(CENTER, CENTER);
-  text("• IJKL", width / 2, choice3 + choiceHeight / 2);
+  text("• Cry because your crush rejected you, and sleep would be your only respite.", width / 2, choice3 + choiceHeight / 2);
+}
+
+void image() {
+  bed = loadImage("bed.jpg");
+  image(bed, leftBound, leftBound);
 }
 
 void draw() {
-  buttons();
+  image();
+  text_choices();
 }
 
 void mousePressed() {
