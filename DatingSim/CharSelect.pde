@@ -1,16 +1,16 @@
 void menu(){
   menus.addScrollableList("Gender?")
     .setPosition(width/6 + 10, height/3)
-    .setSize(200, 100)
-    .setBarHeight(20)
-    .setItemHeight(20)
+    .setSize(200, 500)
+    .setBarHeight(50)
+    .setItemHeight(50)
     .addItems(gender);
     
   menus.addScrollableList("Orientation?")
     .setPosition(width * (11.0/16.0), height / 3)
-    .setSize(200, 100)
-    .setBarHeight(20)
-    .setItemHeight(20)
+    .setSize(200, 500)
+    .setBarHeight(50)
+    .setItemHeight(50)
     .addItems(orientation);
 }
 
@@ -38,9 +38,11 @@ void controlEvent(ControlEvent theEvent){
     println("event from controller : "+theEvent.getController().getValue()+" from "+ theEvent.getController());
     if(theEvent.getController().toString().equals("Gender? [ScrollableList]")){
       sex = theEvent.getController().getValue();
+      menus.get(ScrollableList.class, "Gender?").setBarVisible(false);
       }
     }
     if(theEvent.getController().toString().equals("Orientation? [ScrollableList]")){
       lovers = theEvent.getController().getValue();
+      menus.get(ScrollableList.class, "Orientation?").setBarVisible(false);
     }
 }

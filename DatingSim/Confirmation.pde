@@ -38,8 +38,8 @@ String love(float lovers) {
   }
 }
 void confirm(){
-  menus.get(ScrollableList.class, "Gender?").setBarVisible(false);
-  menus.get(ScrollableList.class, "Orientation?").setBarVisible(false);
+  //menus.get(ScrollableList.class, "Gender?").setBarVisible(false);
+  //menus.get(ScrollableList.class, "Orientation?").setBarVisible(false);
   fill(255);
   textAlign(CENTER, CENTER);
   textFont(f, 20);

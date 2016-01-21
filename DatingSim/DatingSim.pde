@@ -22,7 +22,7 @@ PImage bed, food, bum, park;
 
 
 void setup(){
-  fullScreen();
+  size(1280, 800);
   mode = "Title";
 
   f = createFont("Papyrus", 68, true);
@@ -65,7 +65,9 @@ void draw(){
   }
 
   if(mode.equals("Confirm")){
-    confirm();
+    if(!(menus.get(ScrollableList.class, "Gender?").isBarVisible())){
+      confirm();
+    }
   }
 
   if(mode.equals("Morning")){
@@ -93,7 +95,7 @@ void mousePressed() {
 
    else if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Menus")){
      mode = "Confirm";
-     confirm();
+     //confirm();
    }
 
    else if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Confirm")){
