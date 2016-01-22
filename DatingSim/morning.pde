@@ -21,7 +21,7 @@ void morning() {
     textFont(choice_font);
   
     textAlign(CENTER, CENTER);
-    text("• Wake up, as you must see K-Senpai.", width / 2, choice1 + choiceHeight / 2);
+    text("• Wake up, as you must see K-Sensei.", width / 2, choice1 + choiceHeight / 2);
     
     textAlign(CENTER, CENTER);
     text("• Go back to sleep. Sweet, sweet sleep. Mmmm...", width / 2, choice2 + choiceHeight / 2);

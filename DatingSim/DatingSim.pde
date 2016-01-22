@@ -20,12 +20,19 @@ int leftBound, rightBound, rectWidth, rectHeight;
 PFont description, choice_font;
 PImage bed, food, bum, park;
 
+int slp, grd, hun, est;
+int gen = hun = 0;
+/* gen is Generocity
+slp is sleep
+grd is grade
+hun is hunder
+est is self esteem*/
 
 void setup(){
-  size(1280, 800);
+  size(1280, 720);
   mode = "Title";
 
-  f = createFont("Papyrus", 68, true);
+  f = createFont("papyrus.ttf", 60, true);
 
   rectX = width / 2 - (rectSize + 50) / 2;
   rectY = height / 2 - rectSize;
@@ -65,9 +72,7 @@ void draw(){
   }
 
   if(mode.equals("Confirm")){
-    if(!(menus.get(ScrollableList.class, "Gender?").isBarVisible())){
-      confirm();
-    }
+    confirm();
   }
 
   if(mode.equals("Morning")){
@@ -94,8 +99,10 @@ void mousePressed() {
    }
 
    else if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Menus")){
-     mode = "Confirm";
-     //confirm();
+     if(!(menus.get(ScrollableList.class, "Gender?").isBarVisible()) && !(menus.get(ScrollableList.class, "Orientation?").isBarVisible())){
+       mode = "Confirm";
+       confirm();
+     }
    }
 
    else if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Confirm")){
@@ -119,16 +126,19 @@ void mousePressed() {
    
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Train")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
+        gen += 2;
         mode = "C$";
         comp();
       }
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
+        gen += 1;
         mode = "C$";
         comp();
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
+        gen -= 1;
         mode = "C$";
         comp();
       }

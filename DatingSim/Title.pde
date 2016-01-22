@@ -9,5 +9,5 @@ void title(){
   textFont(f, 40);
   textAlign(LEFT, BOTTOM);
   fill(0);
-  text("Start!", rectX, rectY + 50);
+  text("Start!", rectX, rectY + 65);
 }
