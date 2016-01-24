@@ -18,7 +18,7 @@ int choice1, choice2, choice3, choiceHeight;
 int leftBound, rightBound, rectWidth, rectHeight;
 
 PFont description, choice_font;
-PImage bed, food, bum, park;
+PImage bed, food, bum, park, bsod;
 
 int slp, grd, hun, est;
 int gen = hun = 0;
@@ -57,6 +57,7 @@ void setup(){
   food = loadImage("food.jpg");
   bum = loadImage("panhandler.jpg");
   park = loadImage("park.jpg");
+  bsod = loadImage("bsod.jpg");
 }
 
 void draw(){
@@ -90,6 +91,9 @@ void draw(){
   if(mode.equals("C$")) {
     comp();
   }
+  if(mode.equals("bsod")){
+    bsod();
+  }
 }
 
 void mousePressed() {
@@ -112,15 +116,21 @@ void mousePressed() {
    
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("C$")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
-        mode = "C";
+        //mode = "C";
+        mode = "bsod";
+        bsod();
       }
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
-        mode = "C";
+        //mode = "C";
+        mode = "bsod";
+        bsod();
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
-        mode = "C";
+        //mode = "C";
+        mode = "bsod";
+        bsod();
       }
     }
    

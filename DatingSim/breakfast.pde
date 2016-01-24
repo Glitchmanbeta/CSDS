@@ -4,7 +4,7 @@ void breakfast() {
     fill(255);    
     image(food, leftBound, leftBound);
   
-    fill(255);
+    fill(0);
     textFont(description);
   
     textAlign(CENTER, CENTER);

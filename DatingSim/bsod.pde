@@ -1,0 +1,4 @@
+void bsod(){
+  image(bsod, 0, 0);
+  println("THIS PROGRAM HAS PERFORMED AN ILLEGAL OPERATION AND WILL BE TERMINATED.");
+}
