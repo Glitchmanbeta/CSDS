@@ -25,7 +25,7 @@ int gen = hun = 0;
 /* gen is Generocity
 slp is sleep
 grd is grade
-hun is hunder
+hun is hunger
 est is self esteem*/
 
 void setup(){
@@ -58,6 +58,12 @@ void setup(){
   bum = loadImage("panhandler.jpg");
   park = loadImage("park.jpg");
   bsod = loadImage("bsod.jpg");
+  
+  gen = 0;
+  slp = 100;
+  grd = 100;
+  hun = 0;
+  est = 0;
 }
 
 void draw(){
@@ -117,6 +123,7 @@ void mousePressed() {
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("C$")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
         //mode = "C";
+        gen =+ 2;
         mode = "bsod";
         bsod();
       }
@@ -124,6 +131,7 @@ void mousePressed() {
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
         //mode = "C";
         mode = "bsod";
+        gen -= 2;
         bsod();
       }
        
@@ -142,13 +150,12 @@ void mousePressed() {
       }
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
-        gen += 1;
         mode = "C$";
         comp();
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
-        gen -= 1;
+        gen -= 2;
         mode = "C$";
         comp();
       }
@@ -156,16 +163,19 @@ void mousePressed() {
    
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Breakfast")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
+        hun += 2;
         mode = "Train";
         train();
       }
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
+        est -= 2;
         mode = "Train";
         train();
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
+        est -= 2;
         mode = "Train";
         train();
       }
@@ -173,16 +183,19 @@ void mousePressed() {
    
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Morning")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
+        grd += 2;
         mode = "Breakfast";
         breakfast();
       }
        
       if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
+        grd -= 2;
         mode = "Breakfast";
         breakfast();
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
+        est -= 2;
         mode = "Breakfast";
         breakfast();
       }
