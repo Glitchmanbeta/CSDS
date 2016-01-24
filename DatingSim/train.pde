@@ -4,7 +4,7 @@ void train() {
     fill(255);    
     image(bum, leftBound, leftBound);
   
-    fill(0);
+    fill(255);
     textFont(description);
   
     textAlign(CENTER, CENTER);
