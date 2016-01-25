@@ -4,7 +4,7 @@ void train() {
     fill(255);    
     image(bum, leftBound, leftBound);
   
-    fill(255);
+    fill(0);
     textFont(description);
   
     textAlign(CENTER, CENTER);
@@ -16,10 +16,10 @@ void train() {
     textFont(choice_font);
   
     textAlign(CENTER, CENTER);
-    text("• Give her a dollar. I mean, you still have halal money left.", width / 2, choice1 + choiceHeight / 2);
+    text("• Give her some gold coins. I mean, you still have halal money left.", width / 2, choice1 + choiceHeight / 2);
     
     textAlign(CENTER, CENTER);
-    text("• Give her a penny. That's what she's worth, after all.", width / 2, choice2 + choiceHeight / 2);
+    text("• Give her a penny or two. That's what she's worth, after all.", width / 2, choice2 + choiceHeight / 2);
     
     textAlign(CENTER, CENTER);
     text("• Hold out your empty hand. When she looks, say 'Got Eem!' and run away.", width / 2, choice3 + choiceHeight / 2);

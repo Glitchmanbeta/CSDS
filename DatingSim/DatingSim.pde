@@ -22,9 +22,10 @@ PFont description, choice_font, stat_font;
 PImage bed, food, bum, park, bsod;
 PImage man_morn1, man_morn2, man_morn3, woman_morn1, woman_morn2, woman_morn3;
 PImage breakfast1, breakfast2, breakfast3;
+PImage train1, train2, train3;
+PImage comp1a, comp1b, comp2, comp3;
 
-
-int gen, slp, grd, hun, est;
+int cook, gen, slp, grd, hun, est;
 
 /*
 gen is Generocity
@@ -38,9 +39,10 @@ void setup(){
   size(1280, 720);
   mode = "Title";
   
-  est = gen = hun = 0;
+  cook = est = gen = hun = 0;
   slp = -1;
   grd = 90;
+
 
   f = createFont("papyrus.ttf", 60, true);
   description = createFont("papyrus.ttf", 16);
@@ -82,6 +84,16 @@ void setup(){
   breakfast1 = loadImage("breakfast1.jpg");
   breakfast2 = loadImage("breakfast2.jpg");
   breakfast3 = loadImage("breakfast3.jpg");
+  
+  train1 = loadImage("train1.jpg");
+  train2 = loadImage("train2.jpg");
+  train3 = loadImage("train3.jpg");
+  
+  comp1a = loadImage("comp1a.jpg");
+  comp1b = loadImage("comp1b.jpg");
+  comp2 = loadImage("comp2.jpg");
+  comp3 = loadImage("comp3.jpg");
+
 }
 
 void draw(){
@@ -100,6 +112,8 @@ void draw(){
     confirm();
   }
 
+  // Morning Block
+
   else if(mode.equals("Morning")){
     morning();
   }
@@ -116,20 +130,60 @@ void draw(){
     morn3();
   }
 
+  // Breakfast Block
+
   else if(mode.equals("Breakfast")){
     breakfast();
   }
-  
+
+  else if(mode.equals("break1")){
+    break1();
+  }
+
+  else if(mode.equals("break2")){
+    break2();
+  }
+
+  else if(mode.equals("break3")){
+    break3();
+  }
+
+  // Train Block
+
   else if(mode.equals("Train")) {
     train();
+  }
+
+  else if(mode.equals("tra1")){
+    tra1();
+  }
+
+  else if(mode.equals("tra2")){
+    tra2();
+  }
+
+  else if(mode.equals("tra3")){
+    tra3();
   }
   
   else if(mode.equals("C$")) {
     comp();
   }
 
-  if(mode.equals("bsod")){
-    bsod();
+  else if(mode.equals("cs1a")){
+    cs1a();
+  }
+
+  else if(mode.equals("cs1b")){
+    cs1b();
+  }
+
+  else if(mode.equals("cs2")){
+    cs2();
+  }
+
+  else if(mode.equals("cs3")){
+    cs3();
   }
 }
 
@@ -152,81 +206,109 @@ void mousePressed() {
      morning();
    }
    
+   // ----- CompSci Dating Scene -----
+//|| mode.equals("comp1b") || mode.equals("comp2") || mode.equals("comp3"))
+   else if(mouseX > leftBound && mouseX < rightBound && (mode.equals("comp1b"))) {
+      if(mouseY > leftBound && mouseY < leftBound + 430) {
+        exit();
+      }
+
+      else {
+        tra1();
+      }
+   }
+
+   else if(mouseX > leftBound && mouseX < rightBound && (mode.equals("comp1a"))) {
+      if(mouseY > leftBound && mouseY < leftBound + 430) {
+        exit();
+      }
+
+      else {
+        tra1();
+      }
+   }
+
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("C$")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
-        //mode = "C";
-        gen =+ 2;
-        mode = "bsod";
-        bsod();
+        if(gen > 1) {
+          mode = "comp1a";
+          cs1a();
+        }
+        
+        else {
+          est -= 3;
+
+          mode = "comp1b";
+          cs1b();
+        }
       }
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
-        //mode = "C";
-        mode = "bsod";
-        gen -= 2;
-        bsod();
+        mode = "comp2";
+        cs2();
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
-        //mode = "C";
-        mode = "bsod";
-        bsod();
+        mode = "comp3";
+        cs3();
       }
     }
+
    
+    // --------------- Train Block ---------------
+
+    else if(mouseX > leftBound && mouseX < rightBound && (mode.equals("tra1") || mode.equals("tra2") || mode.equals("tra3"))) {
+      if(mouseY > leftBound && mouseY < leftBound + 430) {
+        mode = "C$";
+        comp();
+      }
+
+      else if(mode.equals("tra1")){
+        tra1();
+      }
+
+      else if(mode.equals("tra2")){
+        tra2();
+      }
+
+      else if(mode.equals("tra3")){
+        tra3();
+      }
+    }
+
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Train")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
         gen += 2;
-        mode = "C$";
-        comp();
+
+        mode = "tra1";
+        tra1();
       }
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
-        mode = "C$";
-        comp();
+        gen += 1;
+
+        mode = "tra2";
+        tra2();
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
         gen -= 2;
-        mode = "C$";
-        comp();
+
+        mode = "tra3";
+        tra3();
       }
       
       else {
         comp();
       }
     }
-   
-   else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Breakfast")) {
-      if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
-        hun += 2;
-        mode = "Train";
-        train();
-      }
-       
-      else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
-        est -= 2;
-        mode = "Train";
-        train();
-      }
-       
-      else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
-        est -= 2;
-        mode = "Train";
-        train();
-      }
-      
-      else {
-        train();
-      }
-    }
-    
+
     // --------------- Breakfast Block ---------------
 
     else if(mouseX > leftBound && mouseX < rightBound && (mode.equals("break1") || mode.equals("break2") || mode.equals("break3"))) {
       if(mouseY > leftBound && mouseY < leftBound + 430) {
         mode = "Train";
-         train();
+        train();
       }
 
       else if(mode.equals("break1")){
@@ -245,6 +327,7 @@ void mousePressed() {
     else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Breakfast")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
         hun -= 3;
+        est += 1;
 
         mode = "break1";
         break1();
@@ -252,12 +335,14 @@ void mousePressed() {
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
         hun += 6;
+        est -= 1;
 
         mode = "break2";
         break2();
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
+        cook += 1;
         hun += 6;
         est += 2;
 

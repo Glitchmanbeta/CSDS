@@ -2,7 +2,6 @@ void morning() {
     background(255);
 
     fill(255);
-    rect(leftBound, leftBound, rectWidth, rectHeight);
     image(bed, leftBound, leftBound);
   
     fill(0);

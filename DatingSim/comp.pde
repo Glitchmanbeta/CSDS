@@ -8,8 +8,8 @@ void comp() {
     textFont(description);
   
     textAlign(CENTER, CENTER);
-    text("You manage to escape the panhandler's wrath after brutally disrespecting her, only to make your way towards Stuyvesant High School. You breeze through", width / 2, 67.5 * height / 100);
-    text("your classes until you get to your favorite, APCS. All of a sudden, this man turns around to you and says: 'Hey, can you help make my integer a long?'", width / 2, 71.5 * height / 100);
+    text("You manage to escape the panhandler and make your way towards Stuyvesant High School. You breeze through your classes until you get to your favorite, APCS.", width / 2, 67.5 * height / 100);
+    text("All of a sudden, this man turns around to you and says: 'Hey, can you help make my integer a long?' In response, you say:", width / 2, 71.5 * height / 100);
   
     
     fill(100);

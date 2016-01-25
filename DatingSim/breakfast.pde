@@ -9,9 +9,8 @@ void breakfast() {
     textAlign(CENTER, CENTER);
 
     text("You're jolted awake by some bouchedag blaring his car horn, only to be greeted by a lovely breakfast made by your parents.", width / 2, 67.5 * height / 100);
-    text("The smell of bacon grease reminds you of your old [insert love interest], but no matter much you eat, you still feel empty.", width / 2, 71.5 * height / 100);
-  
-    
+    text("The smell of bacon grease reminds you of your old flame, but no matter much you eat, you still feel empty.", width / 2, 71.5 * height / 100);
+
     fill(100);
     textFont(choice_font);
   
