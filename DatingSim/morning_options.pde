@@ -1,6 +1,6 @@
 void morn1() {
     background(255);
-    image(man_morn1, leftBound, leftBound);
+    image(morn1, leftBound, leftBound);
   
     fill(0);
     textFont(stat_font);
@@ -16,7 +16,7 @@ void morn1() {
 
 void morn2() {
     background(255);
-    image(man_morn2, leftBound, leftBound);
+    image(morn2, leftBound, leftBound);
   
     fill(0);
     textFont(stat_font);
@@ -32,7 +32,7 @@ void morn2() {
 
 void morn3() {
     background(255);  
-    image(man_morn3, leftBound, leftBound);
+    image(morn3, leftBound, leftBound);
   
     fill(0);
     textFont(stat_font);
