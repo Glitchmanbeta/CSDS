@@ -3,10 +3,6 @@ void morning() {
 
     fill(255);
     rect(leftBound, leftBound, rectWidth, rectHeight);
-  
-    description = createFont("papyrus.ttf", 16);
-    choice_font = createFont("papyrus.ttf", 20);
-    
     image(bed, leftBound, leftBound);
   
     fill(0);

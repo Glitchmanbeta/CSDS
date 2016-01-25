@@ -17,11 +17,12 @@ float sex, lovers;
 int choice1, choice2, choice3, choiceHeight;
 int leftBound, rightBound, rectWidth, rectHeight;
 
-PFont description, choice_font;
+PFont description, choice_font, stat_font;
 PImage bed, food, bum, park, bsod;
+PImage man_morn1, man_morn2, man_morn3, woman_morn1, woman_morn2, woman_morn3;
+
 
 int slp, grd, hun, est;
-int gen = hun = 0;
 
 /*
 gen is Generocity
@@ -34,14 +35,23 @@ est is Self Esteem
 void setup(){
   size(1280, 720);
   mode = "Title";
+  
+  gen = 0;
+  slp = -50;
+  grd = 100;
+  hun = 0;
+  est = 0;
 
   f = createFont("papyrus.ttf", 60, true);
+  description = createFont("papyrus.ttf", 16);
+  choice_font = createFont("papyrus.ttf", 20);
+  stat_font = createFont("papyrus.ttf", 24);
 
   rectX = width / 2 - (rectSize + 50) / 2;
   rectY = height / 2 - rectSize;
   
   leftBound = height / 20;
-  rightBound = 19 * height / 20;
+  rightBound = width - height / 20;
   rectWidth = width - height / 10;
   rectHeight = 9 * height / 10;
     
@@ -61,12 +71,15 @@ void setup(){
   bum = loadImage("panhandler.jpg");
   park = loadImage("park.jpg");
   bsod = loadImage("bsod.jpg");
-  
-  gen = 0;
-  slp = 100;
-  grd = 100;
-  hun = 0;
-  est = 0;
+
+  man_morn1 = loadImage("man_morning1.jpg");
+  man_morn2 = loadImage("man_morning2.jpg");
+  man_morn3 = loadImage("man_morning3.jpg");
+  woman_morn1 = loadImage("woman_morning1.jpg");
+  woman_morn2 = loadImage("woman_morning2.jpg");
+  woman_morn3 = loadImage("woman_morning3.jpg");
+
+
 }
 
 void draw(){
@@ -77,29 +90,42 @@ void draw(){
     title();
   }
 
-  if(mode.equals("Menus")){
+  else if(mode.equals("Menus")){
     menuText();
   }
 
-  if(mode.equals("Confirm")){
+  else if(mode.equals("Confirm")){
     confirm();
   }
 
-  if(mode.equals("Morning")){
+  else if(mode.equals("Morning")){
     morning();
   }
-  
-  if(mode.equals("Breakfast")){
+
+  else if(mode.equals("morn1")){
+    morn1();
+  }
+
+  else if(mode.equals("morn2")){
+    morn2();
+  }
+
+  else if(mode.equals("morn3")){
+    morn3();
+  }
+
+  else if(mode.equals("Breakfast")){
     breakfast();
   }
   
-  if(mode.equals("Train")) {
+  else if(mode.equals("Train")) {
     train();
   }
   
-  if(mode.equals("C$")) {
+  else if(mode.equals("C$")) {
     comp();
   }
+
   if(mode.equals("bsod")){
     bsod();
   }
@@ -192,30 +218,51 @@ void mousePressed() {
         train();
       }
     }
-   
+
+    else if(mouseX > leftBound && mouseX < rightBound && (mode.equals("morn1") || mode.equals("morn2") || mode.equals("morn3"))) {
+      if(mouseY > leftBound && mouseY < leftBound + 430) {
+        mode = "Breakfast";
+        breakfast();
+      }
+
+      else if(mode.equals("morn1")){
+        morn1();
+      }
+
+      else if(mode.equals("morn2")){
+        morn2();
+      }
+
+      else if(mode.equals("morn3")){
+        morn3();
+      }
+    }
+
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Morning")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
         grd += 2;
 
-        mode = "Breakfast";
-        breakfast();
+        mode = "morn1";
+        morn1();
       }
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
         grd -= 2;
 
-        mode = "Breakfast";
-        breakfast();
+        mode = "morn2";
+        morn2();
       }
        
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
+        grd -= 2;
         est -= 2;
-        mode = "Breakfast";
-        breakfast();
+
+        mode = "morn3";
+        morn3();
       }
       
       else {
-        breakfast();
+        morning();
       }
     }
 }
