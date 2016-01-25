@@ -64,7 +64,7 @@ void setup(){
   choiceHeight = 5 * height / 100;
 
   menus = new ControlP5(this);
-  gender = Arrays.asList("Male", "Female", "Trans", "Apache Attack Helicopter");
+  gender = Arrays.asList("Male", "Female", "Transgender", "Apache Attack Helicopter");
   orientation = Arrays.asList("Heterosexual", "Homosexual", "Bisexual", "Asexual", "I don't even know anymore.");
   
   // All the pictures are 1230 × 430 pixels.

@@ -8,7 +8,7 @@ String organ(float sex){
   }
 
   else if(sex == 2.0) {
-    return "Trans";
+    return "Transgender";
   }
 
   else{
