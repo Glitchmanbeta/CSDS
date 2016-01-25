@@ -16,13 +16,17 @@ void menu(){
 
 void menuText(){
   fill(255);
+
   textAlign(CENTER,CENTER);
   textFont(f, 50);
-  text("Before we begin, we have some questions...", width/2, 50);
+  text("Before we begin, we have some questions...", width / 2, 50);
+ 
   textFont(f, 30);
-  text("What is your gender?", width/4, height/4);
-  text("What is your sexual orientation?", width * (3.0/4.0), height/4);
-  rect(width - (2* rectSize), height - (2 * rectSize) + 50, rectSize + 50, rectSize);
+  text("What is your gender?", width / 4, height / 4);
+  text("What is your sexual orientation?", 3 * width / 4, height / 4);
+
+  rect(width - (2 * rectSize), height - (2 * rectSize) + 50, rectSize + 50, rectSize);
+
   fill(0);
   text("Next", width - (2 * rectSize) + 50, height - (2 * rectSize) + 75);
 }

@@ -22,11 +22,14 @@ PImage bed, food, bum, park, bsod;
 
 int slp, grd, hun, est;
 int gen = hun = 0;
-/* gen is Generocity
-slp is sleep
-grd is grade
-hun is hunger
-est is self esteem*/
+
+/*
+gen is Generocity
+slp is Sleep
+grd is Grades
+hun is Hunger
+est is Self Esteem
+*/
 
 void setup(){
   size(1280, 720);
@@ -41,8 +44,6 @@ void setup(){
   rightBound = 19 * height / 20;
   rectWidth = width - height / 10;
   rectHeight = 9 * height / 10;
-  
-  // 1814 x 650
     
   choice1 = 76 * height / 100;
   choice2 = 82 * height / 100;
@@ -53,6 +54,8 @@ void setup(){
   gender = Arrays.asList("Male", "Female", "Trans", "Apache Attack Helicopter");
   orientation = Arrays.asList("Heterosexual", "Homosexual", "Bisexual", "Asexual", "I don't even know anymore.");
   
+  // All the pictures are 1230 × 430 pixels.
+
   bed = loadImage("bed.jpg");
   food = loadImage("food.jpg");
   bum = loadImage("panhandler.jpg");
@@ -108,8 +111,9 @@ void mousePressed() {
      menu();
    }
 
-   else if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Menus")){
-     if(!(menus.get(ScrollableList.class, "Gender?").isBarVisible()) && !(menus.get(ScrollableList.class, "Orientation?").isBarVisible())){
+   else if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Menus")) {
+     // Checks if the menus are visible. To proceed, you must select an option.
+     if(!(menus.get(ScrollableList.class, "Gender?").isBarVisible()) && !(menus.get(ScrollableList.class, "Orientation?").isBarVisible())) {
        mode = "Confirm";
        confirm();
      }
@@ -159,6 +163,10 @@ void mousePressed() {
         mode = "C$";
         comp();
       }
+      
+      else {
+        comp();
+      }
     }
    
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Breakfast")) {
@@ -179,17 +187,23 @@ void mousePressed() {
         mode = "Train";
         train();
       }
+      
+      else {
+        train();
+      }
     }
    
    else if(mouseX > leftBound && mouseX < rightBound && mode.equals("Morning")) {
       if(mouseY > choice1 && mouseY < choice1 + choiceHeight) {
         grd += 2;
+
         mode = "Breakfast";
         breakfast();
       }
        
-      if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
+      else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
         grd -= 2;
+
         mode = "Breakfast";
         breakfast();
       }
@@ -197,6 +211,10 @@ void mousePressed() {
       else if(mouseY > choice3 && mouseY < choice3 + choiceHeight) {
         est -= 2;
         mode = "Breakfast";
+        breakfast();
+      }
+      
+      else {
         breakfast();
       }
     }
