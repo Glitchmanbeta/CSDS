@@ -32,19 +32,19 @@ void menuText(){
 }
 
 void controlEvent(ControlEvent theEvent){
-   if (theEvent.isGroup()) {
-    // check if the Event was triggered from a ControlGroup
-    println("event from group : "+theEvent.getGroup().getValue()+" from "+theEvent.getGroup());
-  } 
-  else if (theEvent.isController()) {
-    /*String debug = theEvent.getController().toString();
-    println(debug);*/
-    println("event from controller : "+theEvent.getController().getValue()+" from "+ theEvent.getController());
-    if(theEvent.getController().toString().equals("Gender? [ScrollableList]")){
-      sex = theEvent.getController().getValue();
-      menus.get(ScrollableList.class, "Gender?").setBarVisible(false);
+   if(theEvent.isGroup()) {
+     println("event from group : "+theEvent.getGroup().getValue()+" from "+theEvent.getGroup());  // check if the Event was triggered from a ControlGroup
+   }
+
+    else if(theEvent.isController()) {
+      println("event from controller : "+theEvent.getController().getValue()+" from "+ theEvent.getController());
+
+      if(theEvent.getController().toString().equals("Gender? [ScrollableList]")) {
+        sex = theEvent.getController().getValue();
+        menus.get(ScrollableList.class, "Gender?").setBarVisible(false);
       }
     }
+
     if(theEvent.getController().toString().equals("Orientation? [ScrollableList]")){
       lovers = theEvent.getController().getValue();
       menus.get(ScrollableList.class, "Orientation?").setBarVisible(false);

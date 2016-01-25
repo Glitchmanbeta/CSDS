@@ -1,7 +1,5 @@
 void morning() {
     background(255);
-
-    fill(255);
     image(bed, leftBound, leftBound);
   
     fill(0);

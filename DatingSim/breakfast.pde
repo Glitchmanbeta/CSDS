@@ -1,7 +1,5 @@
 void breakfast() {
-    background(255);
-
-    fill(255);    
+    background(255);   
     image(food, leftBound, leftBound);
   
     fill(0);

@@ -1,7 +1,5 @@
 void comp() {
-    background(255);
-
-    fill(255);    
+    background(255); 
     image(park, leftBound, leftBound);
   
     fill(0);

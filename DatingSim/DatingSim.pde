@@ -19,11 +19,12 @@ int leftBound, rightBound, rectWidth, rectHeight;
 
 PFont description, choice_font, stat_font;
 
-PImage bed, food, bum, park, bsod;
-PImage man_morn1, man_morn2, man_morn3, woman_morn1, woman_morn2, woman_morn3;
+PImage bed, food, bum, park;
+PImage morn1, morn2, morn3;
 PImage breakfast1, breakfast2, breakfast3;
 PImage train1, train2, train3;
 PImage comp1a, comp1b, comp2, comp3;
+PImage check, sudoku;
 
 int cook, gen, slp, grd, hun, est;
 
@@ -72,14 +73,10 @@ void setup(){
   food = loadImage("food.jpg");
   bum = loadImage("panhandler.jpg");
   park = loadImage("park.jpg");
-  bsod = loadImage("bsod.jpg");
 
-  man_morn1 = loadImage("man_morning1.jpg");
-  man_morn2 = loadImage("man_morning2.jpg");
-  man_morn3 = loadImage("man_morning3.jpg");
-  woman_morn1 = loadImage("woman_morning1.jpg");
-  woman_morn2 = loadImage("woman_morning2.jpg");
-  woman_morn3 = loadImage("woman_morning3.jpg");
+  morn1 = loadImage("morning1.jpg");
+  morn2 = loadImage("morning2.jpg");
+  morn3 = loadImage("morning3.jpg");
   
   breakfast1 = loadImage("breakfast1.jpg");
   breakfast2 = loadImage("breakfast2.jpg");
@@ -93,7 +90,9 @@ void setup(){
   comp1b = loadImage("comp1b.jpg");
   comp2 = loadImage("comp2.jpg");
   comp3 = loadImage("comp3.jpg");
-
+  
+  check = loadImage("check.jpg");
+  sudoku = loadImage("sudoku.jpg");
 }
 
 void draw(){
@@ -170,20 +169,32 @@ void draw(){
     comp();
   }
 
-  else if(mode.equals("cs1a")){
+  else if(mode.equals("comp1a")){
     cs1a();
   }
 
-  else if(mode.equals("cs1b")){
+  else if(mode.equals("comp1b")){
     cs1b();
   }
 
-  else if(mode.equals("cs2")){
+  else if(mode.equals("comp2")){
     cs2();
   }
 
-  else if(mode.equals("cs3")){
+  else if(mode.equals("comp3")){
     cs3();
+  }
+  
+  else if(mode.equals("sudoku-g")){
+    grades();
+  }
+  
+  else if(mode.equals("sudoku-e")){
+    esteem();
+  }
+  
+  else if(mode.equals("end")) {
+    end();
   }
 }
 
@@ -194,8 +205,7 @@ void mousePressed() {
    }
 
    else if(mouseX > (width - (2 * rectSize)) && mouseX < width && mouseY > (height - (2 * rectSize) + 50) && mouseY < height && mode.equals("Menus")) {
-     // Checks if the menus are visible. To proceed, you must select an option.
-     if(!(menus.get(ScrollableList.class, "Gender?").isBarVisible()) && !(menus.get(ScrollableList.class, "Orientation?").isBarVisible())) {
+     if(!(menus.get(ScrollableList.class, "Gender?").isBarVisible()) && !(menus.get(ScrollableList.class, "Orientation?").isBarVisible())) {  // Checks if the menus are visible. To proceed, you must select an option.
        mode = "Confirm";
        confirm();
      }
@@ -206,25 +216,81 @@ void mousePressed() {
      morning();
    }
    
-   // ----- CompSci Dating Scene -----
-//|| mode.equals("comp1b") || mode.equals("comp2") || mode.equals("comp3"))
-   else if(mouseX > leftBound && mouseX < rightBound && (mode.equals("comp1b"))) {
+   // ----- Sudoku -----
+
+   else if(mouseX > leftBound && mouseX < rightBound && (mode.equals("sukodu-e")) || mode.equals("sudoku-g") || mode.equals("end")) {
       if(mouseY > leftBound && mouseY < leftBound + 430) {
         exit();
       }
 
-      else {
-        tra1();
+      else if(mode.equals("sukodu-e")) {
+        esteem();
+      }
+      
+      else if(mode.equals("sukodu-g")) {
+        grades();
+      }
+
+      else if(mode.equals("end")) {
+        end();
       }
    }
 
-   else if(mouseX > leftBound && mouseX < rightBound && (mode.equals("comp1a"))) {
+   // ----- CompSci Dating Scene -----
+
+   else if(mouseX > leftBound && mouseX < rightBound && mode.equals("comp3")) {
       if(mouseY > leftBound && mouseY < leftBound + 430) {
         exit();
       }
 
       else {
-        tra1();
+        cs3();
+      }
+   }
+
+   else if(mouseX > leftBound && mouseX < rightBound && mode.equals("comp2")) {
+      if(mouseY > leftBound && mouseY < leftBound + 430) {
+        if(grd < 80) {
+          mode = "sudoku-g";
+          grades();
+        }
+        
+        else {
+          mode = "end";
+          end();
+        }
+      }
+
+      else {
+        cs2();
+      }
+   }
+
+   else if(mouseX > leftBound && mouseX < rightBound && mode.equals("comp1b")) {
+      if(mouseY > leftBound && mouseY < leftBound + 430) {
+        if(est < -3) {
+          mode = "sudoku-e";
+          esteem();
+        }
+        
+        else {
+          mode = "end";
+          end();
+        }
+      }
+
+      else {
+        cs1b();
+      }
+   }
+
+   else if(mouseX > leftBound && mouseX < rightBound && mode.equals("comp1a")) {
+      if(mouseY > leftBound && mouseY < leftBound + 430) {
+        exit();
+      }
+
+      else {
+        cs1a();
       }
    }
 
@@ -244,6 +310,8 @@ void mousePressed() {
       }
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
+        grd -= 10;
+
         mode = "comp2";
         cs2();
       }
@@ -335,7 +403,6 @@ void mousePressed() {
        
       else if(mouseY > choice2 && mouseY < choice2 + choiceHeight) {
         hun += 6;
-        est -= 1;
 
         mode = "break2";
         break2();

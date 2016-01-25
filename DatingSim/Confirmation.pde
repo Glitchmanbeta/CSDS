@@ -16,6 +16,7 @@ String organ(float sex){
   }
 }
 
+
 String love(float lovers) {
   if(lovers == 0.0) {
     return "a Heterosexual";
@@ -37,16 +38,20 @@ String love(float lovers) {
     return "a Questioning";
   }
 }
+
+
 void confirm(){
-  //menus.get(ScrollableList.class, "Gender?").setBarVisible(false);
-  //menus.get(ScrollableList.class, "Orientation?").setBarVisible(false);
   fill(255);
   textAlign(CENTER, CENTER);
   textFont(f, 50);
+
   text("So, you are " + love(lovers) + " " + organ(sex) + ".", width / 2, height * (1.0 / 3.0));
   text("Great! Shall we begin?", width / 2, height * (2.0 / 3.0));
+
   rect(width - (2* rectSize), height - (2 * rectSize) + 50, rectSize + 50, rectSize);
+
   textFont(f, 30);
   fill(0);
+
   text("Begin", width - (2 * rectSize) + 50, height - (2 * rectSize) + 75);
 }

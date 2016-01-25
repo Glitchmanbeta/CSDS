@@ -1,7 +1,5 @@
 void train() {
     background(255);
-
-    fill(255);    
     image(bum, leftBound, leftBound);
   
     fill(0);
